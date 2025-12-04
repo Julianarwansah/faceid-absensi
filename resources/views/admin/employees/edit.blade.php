@@ -288,7 +288,7 @@
 
             try {
                 const detection = await faceapi
-                    .detectSingleFace(video, new faceapi.ssdMobilenetv1Options())
+                    .detectSingleFace(video, new faceapi.SsdMobilenetv1Options())
                     .withFaceLandmarks()
                     .withFaceDescriptor();
 
