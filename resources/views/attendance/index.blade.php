@@ -356,16 +356,16 @@
                 // Compare with stored descriptor
                 if (storedDescriptor) {
                     const distance = faceapi.euclideanDistance(currentDescriptor, storedDescriptor);
-                    faceMatched = distance < 0.6; // Threshold for matching
+                    faceMatched = distance < 0.35; // Threshold for matching
 
                     if (faceMatched) {
                         statusIndicator.className = 'status-indicator matched';
-                        statusIndicator.innerHTML = '<i class="fas fa-check-circle"></i> Face Matched!';
+                        statusIndicator.innerHTML = `<i class="fas fa-check-circle"></i> Face Matched! (${confidence.toFixed(0)}% confidence)`;
                         if (btnCheckin) btnCheckin.disabled = false;
                         if (btnCheckout) btnCheckout.disabled = false;
                     } else {
                         statusIndicator.className = 'status-indicator no-match';
-                        statusIndicator.innerHTML = '<i class="fas fa-times-circle"></i> Face Not Matched';
+                        statusIndicator.innerHTML = `<i class="fas fa-times-circle"></i> Face Not Matched (${confidence.toFixed(0)}% - Need 65%+)`;
                         if (btnCheckin) btnCheckin.disabled = true;
                         if (btnCheckout) btnCheckout.disabled = true;
                     }
