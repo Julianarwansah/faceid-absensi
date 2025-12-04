@@ -243,7 +243,7 @@
             if (modelsLoaded) return;
 
             try {
-                await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model');
+                await faceapi.nets.ssdMobilenetv1.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model');
                 await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model');
                 await faceapi.nets.faceRecognitionNet.loadFromUri('https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model');
                 modelsLoaded = true;
@@ -288,7 +288,7 @@
 
             try {
                 const detection = await faceapi
-                    .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
+                    .detectSingleFace(video, new faceapi.ssdMobilenetv1Options())
                     .withFaceLandmarks()
                     .withFaceDescriptor();
 
